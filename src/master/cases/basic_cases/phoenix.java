@@ -10,7 +10,10 @@ package master.cases.basic_cases;
  * @author cackerman
  */
 public class phoenix extends javax.swing.JFrame {
-
+    private final static int  COVERT = 2;
+    private final static int CLASSIFIED = 3;
+    private final static int RESTRICTED = 4; 
+    private final static int MIL_SPEC = 4;
     /**
      * Creates new form phoenix
      */
@@ -27,6 +30,7 @@ public class phoenix extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel3 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
@@ -43,8 +47,10 @@ public class phoenix extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(1080, 735));
+        setMinimumSize(new java.awt.Dimension(1095, 735));
         getContentPane().setLayout(null);
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(240, 160, 370, 300);
 
         jTextField9.setEditable(false);
         jTextField9.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
@@ -191,6 +197,7 @@ public class phoenix extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
