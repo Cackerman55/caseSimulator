@@ -143,7 +143,7 @@ public class picker extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton9);
-        jButton9.setBounds(580, 116, 180, 130);
+        jButton9.setBounds(580, 460, 180, 130);
 
         jButton10.setBorder(null);
         jButton10.setBorderPainted(false);
@@ -153,8 +153,13 @@ public class picker extends javax.swing.JFrame {
                 jButton10MouseClicked(evt);
             }
         });
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton10);
-        jButton10.setBounds(580, 246, 180, 120);
+        jButton10.setBounds(580, 120, 180, 120);
 
         jButton11.setBorder(null);
         jButton11.setBorderPainted(false);
@@ -165,7 +170,7 @@ public class picker extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton11);
-        jButton11.setBounds(580, 366, 180, 110);
+        jButton11.setBounds(580, 240, 180, 110);
 
         jButton12.setBorder(null);
         jButton12.setBorderPainted(false);
@@ -175,8 +180,13 @@ public class picker extends javax.swing.JFrame {
                 jButton12MouseClicked(evt);
             }
         });
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton12);
-        jButton12.setBounds(580, 476, 180, 110);
+        jButton12.setBounds(580, 350, 180, 110);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/menu.png"))); // NOI18N
         jLabel2.setFocusable(false);
@@ -245,6 +255,14 @@ public class picker extends javax.swing.JFrame {
         // TODO add your handling code here:
         new wep3().setVisible(true);
     }//GEN-LAST:event_jButton12MouseClicked
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     /**
      * @param args the command line arguments
