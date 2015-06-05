@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package master.cases.basic_cases;
-
+import guis.icons.basic_cases.Winter;
 /**
  *
  * @author cackerman
@@ -30,123 +30,146 @@ public class phoenix extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        open = new javax.swing.JButton();
+        selected = new javax.swing.JLabel();
+        rarest = new javax.swing.JTextField();
+        rare = new javax.swing.JTextField();
+        covert = new javax.swing.JTextField();
+        covertst = new javax.swing.JTextField();
+        classifiedst = new javax.swing.JTextField();
+        classified = new javax.swing.JTextField();
+        restrictedst = new javax.swing.JTextField();
+        restricted = new javax.swing.JTextField();
+        milspecst = new javax.swing.JTextField();
+        milspec = new javax.swing.JTextField();
+        profit = new javax.swing.JTextField();
+        value = new javax.swing.JTextField();
+        cost = new javax.swing.JTextField();
+        number = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1095, 735));
         getContentPane().setLayout(null);
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(240, 160, 370, 300);
 
-        jTextField9.setEditable(false);
-        jTextField9.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
-        jTextField9.setText("jTextField1");
-        jTextField9.setBorder(null);
-        jTextField9.setOpaque(false);
-        getContentPane().add(jTextField9);
-        jTextField9.setBounds(1040, 260, 30, 60);
+        open.setBorderPainted(false);
+        getContentPane().add(open);
+        open.setBounds(290, 490, 310, 70);
+        getContentPane().add(selected);
+        selected.setBounds(260, 180, 370, 300);
 
-        jTextField10.setEditable(false);
-        jTextField10.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
-        jTextField10.setText("jTextField1");
-        jTextField10.setBorder(null);
-        jTextField10.setOpaque(false);
-        getContentPane().add(jTextField10);
-        jTextField10.setBounds(1000, 260, 30, 60);
+        rarest.setEditable(false);
+        rarest.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        rarest.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        rarest.setBorder(null);
+        rarest.setOpaque(false);
+        getContentPane().add(rarest);
+        rarest.setBounds(1040, 290, 30, 60);
 
-        jTextField11.setEditable(false);
-        jTextField11.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
-        jTextField11.setText("jTextField1");
-        jTextField11.setBorder(null);
-        jTextField11.setOpaque(false);
-        getContentPane().add(jTextField11);
-        jTextField11.setBounds(1040, 250, 30, 30);
+        rare.setEditable(false);
+        rare.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        rare.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        rare.setBorder(null);
+        rare.setOpaque(false);
+        getContentPane().add(rare);
+        rare.setBounds(1000, 290, 30, 60);
 
-        jTextField12.setEditable(false);
-        jTextField12.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
-        jTextField12.setText("jTextField1");
-        jTextField12.setBorder(null);
-        jTextField12.setOpaque(false);
-        getContentPane().add(jTextField12);
-        jTextField12.setBounds(1000, 250, 30, 30);
+        covert.setEditable(false);
+        covert.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        covert.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        covert.setBorder(null);
+        covert.setOpaque(false);
+        getContentPane().add(covert);
+        covert.setBounds(1000, 270, 30, 40);
 
-        jTextField7.setEditable(false);
-        jTextField7.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
-        jTextField7.setText("jTextField1");
-        jTextField7.setBorder(null);
-        jTextField7.setOpaque(false);
-        getContentPane().add(jTextField7);
-        jTextField7.setBounds(1040, 220, 30, 30);
+        covertst.setEditable(false);
+        covertst.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        covertst.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        covertst.setBorder(null);
+        covertst.setOpaque(false);
+        getContentPane().add(covertst);
+        covertst.setBounds(1040, 270, 30, 40);
 
-        jTextField8.setEditable(false);
-        jTextField8.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
-        jTextField8.setText("jTextField1");
-        jTextField8.setBorder(null);
-        jTextField8.setOpaque(false);
-        getContentPane().add(jTextField8);
-        jTextField8.setBounds(1000, 220, 30, 30);
+        classifiedst.setEditable(false);
+        classifiedst.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        classifiedst.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        classifiedst.setBorder(null);
+        classifiedst.setOpaque(false);
+        getContentPane().add(classifiedst);
+        classifiedst.setBounds(1040, 250, 30, 30);
 
-        jTextField6.setEditable(false);
-        jTextField6.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
-        jTextField6.setText("jTextField1");
-        jTextField6.setBorder(null);
-        jTextField6.setOpaque(false);
-        getContentPane().add(jTextField6);
-        jTextField6.setBounds(1040, 190, 30, 30);
+        classified.setEditable(false);
+        classified.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        classified.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        classified.setBorder(null);
+        classified.setOpaque(false);
+        getContentPane().add(classified);
+        classified.setBounds(1000, 250, 30, 30);
 
-        jTextField5.setEditable(false);
-        jTextField5.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
-        jTextField5.setText("jTextField1");
-        jTextField5.setBorder(null);
-        jTextField5.setOpaque(false);
-        getContentPane().add(jTextField5);
-        jTextField5.setBounds(1000, 190, 30, 30);
+        restrictedst.setEditable(false);
+        restrictedst.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        restrictedst.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        restrictedst.setBorder(null);
+        restrictedst.setOpaque(false);
+        getContentPane().add(restrictedst);
+        restrictedst.setBounds(1040, 220, 30, 30);
 
-        jTextField4.setEditable(false);
-        jTextField4.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
-        jTextField4.setText("jTextField1");
-        jTextField4.setBorder(null);
-        jTextField4.setOpaque(false);
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(1010, 130, 60, 30);
+        restricted.setEditable(false);
+        restricted.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        restricted.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        restricted.setBorder(null);
+        restricted.setOpaque(false);
+        getContentPane().add(restricted);
+        restricted.setBounds(1000, 220, 30, 30);
 
-        jTextField3.setEditable(false);
-        jTextField3.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
-        jTextField3.setText("jTextField1");
-        jTextField3.setBorder(null);
-        jTextField3.setOpaque(false);
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(990, 100, 80, 30);
+        milspecst.setEditable(false);
+        milspecst.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        milspecst.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        milspecst.setBorder(null);
+        milspecst.setOpaque(false);
+        getContentPane().add(milspecst);
+        milspecst.setBounds(1040, 190, 30, 30);
 
-        jTextField2.setEditable(false);
-        jTextField2.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
-        jTextField2.setText("jTextField1");
-        jTextField2.setBorder(null);
-        jTextField2.setOpaque(false);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(990, 70, 80, 30);
+        milspec.setEditable(false);
+        milspec.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        milspec.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        milspec.setBorder(null);
+        milspec.setOpaque(false);
+        getContentPane().add(milspec);
+        milspec.setBounds(1000, 190, 30, 30);
 
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
-        jTextField1.setText("jTextField1");
-        jTextField1.setBorder(null);
-        jTextField1.setOpaque(false);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(1010, 20, 60, 30);
+        profit.setEditable(false);
+        profit.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        profit.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        profit.setBorder(null);
+        profit.setOpaque(false);
+        getContentPane().add(profit);
+        profit.setBounds(1010, 130, 60, 30);
+
+        value.setEditable(false);
+        value.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        value.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        value.setBorder(null);
+        value.setOpaque(false);
+        getContentPane().add(value);
+        value.setBounds(990, 100, 80, 30);
+
+        cost.setEditable(false);
+        cost.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        cost.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        cost.setBorder(null);
+        cost.setOpaque(false);
+        getContentPane().add(cost);
+        cost.setBounds(990, 70, 80, 30);
+
+        number.setEditable(false);
+        number.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        number.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        number.setBorder(null);
+        number.setOpaque(false);
+        getContentPane().add(number);
+        number.setBounds(1010, 20, 60, 30);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/phoenixHead.png"))); // NOI18N
         getContentPane().add(jLabel2);
@@ -195,20 +218,23 @@ public class phoenix extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField classified;
+    private javax.swing.JTextField classifiedst;
+    private javax.swing.JTextField cost;
+    private javax.swing.JTextField covert;
+    private javax.swing.JTextField covertst;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField milspec;
+    private javax.swing.JTextField milspecst;
+    private javax.swing.JTextField number;
+    private javax.swing.JButton open;
+    private javax.swing.JTextField profit;
+    private javax.swing.JTextField rare;
+    private javax.swing.JTextField rarest;
+    private javax.swing.JTextField restricted;
+    private javax.swing.JTextField restrictedst;
+    private javax.swing.JLabel selected;
+    private javax.swing.JTextField value;
     // End of variables declaration//GEN-END:variables
 }
