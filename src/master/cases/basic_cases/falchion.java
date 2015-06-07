@@ -70,6 +70,7 @@ public class falchion extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Falchion case");
         setMinimumSize(new java.awt.Dimension(1095, 735));
         getContentPane().setLayout(null);
 

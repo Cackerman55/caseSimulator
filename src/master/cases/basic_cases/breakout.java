@@ -71,6 +71,7 @@ public class breakout extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Operation Breakout case");
         setMinimumSize(new java.awt.Dimension(1095, 735));
         getContentPane().setLayout(null);
 
@@ -88,7 +89,6 @@ public class breakout extends javax.swing.JFrame {
 
         open.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/open.png"))); // NOI18N
         open.setContentAreaFilled(false);
-        open.setOpaque(false);
         open.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 openMouseClicked(evt);
