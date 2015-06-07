@@ -76,6 +76,8 @@ public class falchion extends javax.swing.JFrame {
         statTrak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/stattrak.png"))); // NOI18N
         getContentPane().add(statTrak);
         statTrak.setBounds(510, 160, 120, 120);
+
+        knifeBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/icons/basic_cases/Falchion/covert1.png"))); // NOI18N
         getContentPane().add(knifeBanner);
         knifeBanner.setBounds(260, 180, 370, 300);
 
