@@ -26,8 +26,8 @@ public class huntsman extends javax.swing.JFrame {
     public static String choice = "";
     public static String path = "/guis/icons/basic_cases/Huntsman/";
     public static final String statement = "Value: $";
-    public static double[] rValues = {2.22,75.75,8.38,3.2,3.17,.64,.68,.68,.76,1.1,.71,.15,.33,.12,.68,.42,.15,.19,.13};
-    public static double[] sValues = {15.48,187.2,35.55,39.39,11.66,23.19,5.87,2.85,3.05,3.15,4.04,4.17,.45,1.26,.56,3.58,2.32,.72,2.29,.86};
+    public static double[] rValues = {2.22,75.75,3.2,8.38,8.68,3.17,.64,.68,.68,.76,1.1,.71,.15,.33,.12,.68,.42,.15,.19,.13};
+    public static double[] sValues = {15.48,187.2,11.66,53.55,39.39,23.19,5.87,2.85,3.05,3.15,4.04,4.17,.45,1.26,.56,3.58,2.32,.72,2.29,.86};
      public static int[] statT = {0,0,0,0,0};
     public static int[] reg = {0,0,0,0,0};
     public static int[] knifeLoadout = {19,13,13,19,19,13,19,19};
@@ -50,7 +50,6 @@ public class huntsman extends javax.swing.JFrame {
         statTrak = new javax.swing.JLabel();
         knifeBanner = new javax.swing.JLabel();
         price = new javax.swing.JLabel();
-        open = new javax.swing.JButton();
         selected = new javax.swing.JLabel();
         rarest = new javax.swing.JTextField();
         rare = new javax.swing.JTextField();
@@ -66,10 +65,11 @@ public class huntsman extends javax.swing.JFrame {
         value = new javax.swing.JTextField();
         cost = new javax.swing.JTextField();
         number = new javax.swing.JTextField();
+        open = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Huntsman Case");
         setMinimumSize(new java.awt.Dimension(1095, 735));
         getContentPane().setLayout(null);
@@ -87,16 +87,6 @@ public class huntsman extends javax.swing.JFrame {
         price.setText("Value:");
         getContentPane().add(price);
         price.setBounds(340, 600, 210, 60);
-
-        open.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/open.png"))); // NOI18N
-        open.setContentAreaFilled(false);
-        open.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                openMouseClicked(evt);
-            }
-        });
-        getContentPane().add(open);
-        open.setBounds(290, 490, 310, 70);
         getContentPane().add(selected);
         selected.setBounds(260, 180, 370, 300);
 
@@ -240,6 +230,16 @@ public class huntsman extends javax.swing.JFrame {
         getContentPane().add(number);
         number.setBounds(1010, 20, 60, 30);
 
+        open.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/open.png"))); // NOI18N
+        open.setContentAreaFilled(false);
+        open.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                openMouseClicked(evt);
+            }
+        });
+        getContentPane().add(open);
+        open.setBounds(290, 490, 310, 70);
+
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/hunstmanHead.png"))); // NOI18N
         getContentPane().add(jLabel2);
         jLabel2.setBounds(100, 10, 690, 90);
@@ -253,23 +253,24 @@ public class huntsman extends javax.swing.JFrame {
 
     private void openMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openMouseClicked
         // TODO add your handling code here:
-        String temp = path;
+        System.out.println(rValues.length+"/n"+sValues.length);
+         String temp = path;
         openned++;
         knifeBanner.setIcon(null);
         costs = caseV + costs;
-        //int prob = (int) ((Math.random()*200)+1);//
+        int prob = (int) ((Math.random()*200)+1);
         //calculates probabilities
-        int prob = 200;
+       // int prob = 200;
         int stat = (int) ((Math.random()*25)+1);
         int num = 0;
         //looks if it is stattrak or not
         st = stat<3;
         //and sets icon accordingly
         if(st){
-            statTrak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/stattrak.png")));
-        }
+        statTrak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/stattrak.png")));
+                }
         else{statTrak.setIcon(null);}
-
+        
         //looks at probabilities
         //if it is a knife...
         if(prob==200){
@@ -282,7 +283,7 @@ public class huntsman extends javax.swing.JFrame {
                 tValue += 376.89;
                 price.setText(statement+""+376.89);
             }
-            else{
+            else{ 
                 tValue += 654.98;
                 price.setText(statement+""+654.98);
             }
@@ -290,11 +291,13 @@ public class huntsman extends javax.swing.JFrame {
             knifeBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/knifeBanner.png")));
             //finds a random knife and sets the path to the resource
             int choice = (int)(Math.random()*8+1);
-            path = "/guis/icons/knives/"+choice+"/";
-            num = (int)(Math.random()*(knifeLoadout[choice-1])+1);
+            path = "/guis/icons/knives/6/ ";
+            num = (int)(Math.random()*(knifeLoadout[5])+1);
             path+="("+num+").png";
+            
         }
-
+        
+        
         //if it is mil-spec...
         else if(prob<=158){
             choice = "mil-spec";
@@ -335,14 +338,15 @@ public class huntsman extends javax.swing.JFrame {
             if(st){statT[3]++;}
             else{reg[3]++;}
         }
-
+        
         //IF IT IS NOT A KNIFE...
         if(!knife){
             //sets the path for a gun skin
             path += choice+num+".png";
         }
-        //sets the displayed skin(knife or gun) to the correct icon
-        selected.setIcon(new javax.swing.ImageIcon(getClass().getResource(path)));
+        
+        
+        
         //if it isnt a knife or stattrak...
         if(!st&&!knife){
             //sets the correct price and adds the value of the skin to the total value
@@ -350,26 +354,36 @@ public class huntsman extends javax.swing.JFrame {
             price.setText(statement+""+rValues[spot]);
         }
         //if it isnt knife but is a stattrak...
-        else if(st&&!knife){
+        else if(st&&!knife){ 
             //sets the correct price and adds the value of the skin to the total value
             tValue += sValues[spot];
             price.setText(statement+""+sValues[spot]);
         }
+        
         //finds the profit per case
         profits = (tValue-costs)/openned;
         profits *= 100;
         int temp1 = (int) profits;
         String temp2 = ""+temp1;
         //sets the profit field to display the current profit
+        if(temp2.length()>6){
         temp2 = temp2.substring(0, temp2.length()-3)+"."+temp2.substring(temp2.length()-3);
+        }
         profit.setText(temp2);
         //sets the number of oppened field to the correct value
         number.setText(""+openned);
         //sets the cost field to the correct value
-        cost.setText(""+costs);
+        String stringyCost = ""+costs;
+        if(stringyCost.length()>6){
+        stringyCost = stringyCost.substring(0,(stringyCost.indexOf(".")+3));
+        }
+        cost.setText(stringyCost);
         //sets the value field to the correct total value
-        value.setText(""+tValue);
-        //sets the correct fields for the correct counts of all the rarity/quality and stattrak combinations
+        String stringyValue = ""+tValue;
+         if(stringyValue.length()>6){
+        stringyValue = stringyValue.substring(0,(stringyValue.indexOf(".")+3));}
+        value.setText(stringyValue);
+        //sets the correct fields for the correct counts of all the rarity/quality and stattrak combinations 
         milspec.setText(""+reg[0]);
         milspecst.setText(""+statT[0]);
         restricted.setText(""+reg[1]);
@@ -380,6 +394,8 @@ public class huntsman extends javax.swing.JFrame {
         covertst.setText(""+statT[3]);
         rare.setText(""+reg[4]);
         rarest.setText(""+statT[4]);
+        //sets the displayed skin(knife or gun) to the correct icon
+        selected.setIcon(new javax.swing.ImageIcon(getClass().getResource(path)));
         //resets the path to the original
         path = temp;
         //sets the knife boolean to the original value(false)
@@ -390,7 +406,7 @@ public class huntsman extends javax.swing.JFrame {
         st = false;
         //resets spot number
         spot = 0;
-        //repaints/refreshes the display to show the changes
+        //repaints/refreshes the display to show the new data
         repaint();
     }//GEN-LAST:event_openMouseClicked
 

@@ -27,10 +27,11 @@ public class breakout extends javax.swing.JFrame {
     public static String path = "/guis/icons/basic_cases/Breakout/";
     public static final String statement = "Value: $";
     public static double[] rValues = {30.2, 11.04, 2.55, 2.77, 5.01, .42, .41,.49,.63, .1,.09,.38,.09,.11};
-    public static double[] sValues = {122.18, 61.64, 10.76,11.37, 21.08, 2.46, 1.69, 2.46, 1.94, 2.77, .58, .29, 2.93, .29, .74};
+    public static double[] sValues = {122.18, 61.64, 10.76,11.37, 21.08, 2.46, 1.69, 1.94, 2.77, .58, .29, 2.93, .29, .74};
     public static int[] statT = {0,0,0,0,0};
     public static int[] reg = {0,0,0,0,0};
     public static int[] knifeLoadout = {19,13,13,19,19,13,19,19};
+    public int count = 0;
 
     /**
      * Creates new form breakout
@@ -70,7 +71,7 @@ public class breakout extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Operation Breakout case");
         setMinimumSize(new java.awt.Dimension(1095, 735));
         getContentPane().setLayout(null);
@@ -78,6 +79,8 @@ public class breakout extends javax.swing.JFrame {
         statTrak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/stattrak.png"))); // NOI18N
         getContentPane().add(statTrak);
         statTrak.setBounds(510, 160, 120, 120);
+
+        knifeBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/knifeBanner.png"))); // NOI18N
         getContentPane().add(knifeBanner);
         knifeBanner.setBounds(260, 180, 370, 300);
 
@@ -254,13 +257,15 @@ public class breakout extends javax.swing.JFrame {
     
     private void openMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openMouseClicked
         // TODO add your handling code here:
-        String temp = path;
+        // TODO add your handling code here:
+        System.out.println(rValues.length+"/n"+sValues.length);
+         String temp = path;
         openned++;
         knifeBanner.setIcon(null);
         costs = caseV + costs;
-        //int prob = (int) ((Math.random()*200)+1);
+        int prob = (int) ((Math.random()*200)+1);
         //calculates probabilities
-        int prob = 200;
+       // int prob = 200;
         int stat = (int) ((Math.random()*25)+1);
         int num = 0;
         //looks if it is stattrak or not
@@ -291,9 +296,10 @@ public class breakout extends javax.swing.JFrame {
             knifeBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/knifeBanner.png")));
             //finds a random knife and sets the path to the resource
             int choice = (int)(Math.random()*8+1);
-            path = "/guis/icons/knives/"+choice+"/";
-            num = (int)(Math.random()*(knifeLoadout[choice-1])+1);
+            path = "/guis/icons/knives/2/ ";
+            num = (int)(Math.random()*(knifeLoadout[1])+1);
             path+="("+num+").png";
+            
         }
         
         
@@ -343,8 +349,9 @@ public class breakout extends javax.swing.JFrame {
             //sets the path for a gun skin
             path += choice+num+".png";
         }
-        //sets the displayed skin(knife or gun) to the correct icon
-        selected.setIcon(new javax.swing.ImageIcon(getClass().getResource(path)));
+        
+        
+        
         //if it isnt a knife or stattrak...
         if(!st&&!knife){
             //sets the correct price and adds the value of the skin to the total value
@@ -357,20 +364,30 @@ public class breakout extends javax.swing.JFrame {
             tValue += sValues[spot];
             price.setText(statement+""+sValues[spot]);
         }
+        
         //finds the profit per case
         profits = (tValue-costs)/openned;
         profits *= 100;
         int temp1 = (int) profits;
         String temp2 = ""+temp1;
         //sets the profit field to display the current profit
+        
         temp2 = temp2.substring(0, temp2.length()-3)+"."+temp2.substring(temp2.length()-3);
+        
         profit.setText(temp2);
         //sets the number of oppened field to the correct value
         number.setText(""+openned);
         //sets the cost field to the correct value
-        cost.setText(""+costs);
+        String stringyCost = ""+costs;
+        if(stringyCost.length()>6){
+        stringyCost = stringyCost.substring(0,(stringyCost.indexOf(".")+3));
+        }
+        cost.setText(stringyCost);
         //sets the value field to the correct total value
-        value.setText(""+tValue);
+        String stringyValue = ""+tValue;
+         if(stringyValue.length()>6){
+        stringyValue = stringyValue.substring(0,(stringyValue.indexOf(".")+3));}
+        value.setText(stringyValue);
         //sets the correct fields for the correct counts of all the rarity/quality and stattrak combinations 
         milspec.setText(""+reg[0]);
         milspecst.setText(""+statT[0]);
@@ -382,6 +399,8 @@ public class breakout extends javax.swing.JFrame {
         covertst.setText(""+statT[3]);
         rare.setText(""+reg[4]);
         rarest.setText(""+statT[4]);
+        //sets the displayed skin(knife or gun) to the correct icon
+        selected.setIcon(new javax.swing.ImageIcon(getClass().getResource(path)));
         //resets the path to the original
         path = temp;
         //sets the knife boolean to the original value(false)
