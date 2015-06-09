@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package master.cases.basic_cases;
-import guis.icons.basic_cases.Winter;
+import java.io.*;
+import sun.audio.*;
 /**
  *
  * @author cackerman
@@ -14,6 +15,22 @@ public class chroma2 extends javax.swing.JFrame {
     private final static int CLASSIFIED = 3;
     private final static int RESTRICTED = 4; 
     private final static int MIL_SPEC = 6;
+    public static boolean knife = false;
+    public static boolean st = false;
+    public static int openned = 0;
+    public static int spot = 0;
+    public static double costs = 0.0;
+    public static double tValue = 0.0;
+    public static double profits = 0.0;
+    public static double caseV = 2.81;
+    public static String choice = "";
+    public static String path = "/guis/icons/basic_cases/Chroma2/";
+    public static final String statement = "Value: $";
+    public static double[] rValues = {7.36,83.0,6.72,6.53,7.75,.38,.64,.91,2.51,.16,14,.49,.18,.14,2.29};
+    public static double[] sValues = {25.2,155.11,39.42,25.6,30.54,1.23,2.93,5.04,13.51,.6,.45,3.69,1.71,.73,14.44};
+    public static int[] statT = {0,0,0,0,0};
+    public static int[] reg = {0,0,0,0,0};
+    public static int[] knifeLoadout = {19,13,13,19,19,13,19,19};
     /**
      * Creates new form chroma2
      */
@@ -30,7 +47,10 @@ public class chroma2 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        statTrak = new javax.swing.JLabel();
         open = new javax.swing.JButton();
+        knifeBanner = new javax.swing.JLabel();
+        price = new javax.swing.JLabel();
         selected = new javax.swing.JLabel();
         rarest = new javax.swing.JTextField();
         rare = new javax.swing.JTextField();
@@ -49,19 +69,42 @@ public class chroma2 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Chroma 2 case");
         setMinimumSize(new java.awt.Dimension(1095, 735));
         getContentPane().setLayout(null);
 
-        open.setBorderPainted(false);
+        statTrak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/stattrak.png"))); // NOI18N
+        getContentPane().add(statTrak);
+        statTrak.setBounds(510, 160, 120, 120);
+
+        open.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/open.png"))); // NOI18N
+        open.setContentAreaFilled(false);
+        open.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                openMouseClicked(evt);
+            }
+        });
         getContentPane().add(open);
         open.setBounds(290, 490, 310, 70);
+
+        knifeBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/icons/basic_cases/Chroma2/covert2.png"))); // NOI18N
+        getContentPane().add(knifeBanner);
+        knifeBanner.setBounds(260, 180, 370, 300);
+
+        price.setFont(new java.awt.Font("OCR A Std", 1, 20)); // NOI18N
+        price.setForeground(new java.awt.Color(255, 255, 255));
+        price.setText("Value:");
+        getContentPane().add(price);
+        price.setBounds(340, 600, 210, 60);
         getContentPane().add(selected);
         selected.setBounds(260, 180, 370, 300);
 
         rarest.setEditable(false);
         rarest.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        rarest.setForeground(new java.awt.Color(0, 0, 0));
         rarest.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        rarest.setText("0");
         rarest.setBorder(null);
         rarest.setOpaque(false);
         getContentPane().add(rarest);
@@ -69,7 +112,9 @@ public class chroma2 extends javax.swing.JFrame {
 
         rare.setEditable(false);
         rare.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        rare.setForeground(new java.awt.Color(0, 0, 0));
         rare.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        rare.setText("0");
         rare.setBorder(null);
         rare.setOpaque(false);
         getContentPane().add(rare);
@@ -77,7 +122,9 @@ public class chroma2 extends javax.swing.JFrame {
 
         covert.setEditable(false);
         covert.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        covert.setForeground(new java.awt.Color(0, 0, 0));
         covert.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        covert.setText("0");
         covert.setBorder(null);
         covert.setOpaque(false);
         getContentPane().add(covert);
@@ -85,7 +132,9 @@ public class chroma2 extends javax.swing.JFrame {
 
         covertst.setEditable(false);
         covertst.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        covertst.setForeground(new java.awt.Color(0, 0, 0));
         covertst.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        covertst.setText("0");
         covertst.setBorder(null);
         covertst.setOpaque(false);
         getContentPane().add(covertst);
@@ -93,7 +142,9 @@ public class chroma2 extends javax.swing.JFrame {
 
         classifiedst.setEditable(false);
         classifiedst.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        classifiedst.setForeground(new java.awt.Color(0, 0, 0));
         classifiedst.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        classifiedst.setText("0");
         classifiedst.setBorder(null);
         classifiedst.setOpaque(false);
         getContentPane().add(classifiedst);
@@ -101,7 +152,9 @@ public class chroma2 extends javax.swing.JFrame {
 
         classified.setEditable(false);
         classified.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        classified.setForeground(new java.awt.Color(0, 0, 0));
         classified.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        classified.setText("0");
         classified.setBorder(null);
         classified.setOpaque(false);
         getContentPane().add(classified);
@@ -109,7 +162,9 @@ public class chroma2 extends javax.swing.JFrame {
 
         restrictedst.setEditable(false);
         restrictedst.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        restrictedst.setForeground(new java.awt.Color(0, 0, 0));
         restrictedst.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        restrictedst.setText("0");
         restrictedst.setBorder(null);
         restrictedst.setOpaque(false);
         getContentPane().add(restrictedst);
@@ -117,7 +172,9 @@ public class chroma2 extends javax.swing.JFrame {
 
         restricted.setEditable(false);
         restricted.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        restricted.setForeground(new java.awt.Color(0, 0, 0));
         restricted.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        restricted.setText("0");
         restricted.setBorder(null);
         restricted.setOpaque(false);
         getContentPane().add(restricted);
@@ -125,7 +182,9 @@ public class chroma2 extends javax.swing.JFrame {
 
         milspecst.setEditable(false);
         milspecst.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        milspecst.setForeground(new java.awt.Color(0, 0, 0));
         milspecst.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        milspecst.setText("0");
         milspecst.setBorder(null);
         milspecst.setOpaque(false);
         getContentPane().add(milspecst);
@@ -133,7 +192,9 @@ public class chroma2 extends javax.swing.JFrame {
 
         milspec.setEditable(false);
         milspec.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        milspec.setForeground(new java.awt.Color(0, 0, 0));
         milspec.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        milspec.setText("0");
         milspec.setBorder(null);
         milspec.setOpaque(false);
         getContentPane().add(milspec);
@@ -141,7 +202,9 @@ public class chroma2 extends javax.swing.JFrame {
 
         profit.setEditable(false);
         profit.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        profit.setForeground(new java.awt.Color(0, 0, 0));
         profit.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        profit.setText("0");
         profit.setBorder(null);
         profit.setOpaque(false);
         getContentPane().add(profit);
@@ -149,7 +212,9 @@ public class chroma2 extends javax.swing.JFrame {
 
         value.setEditable(false);
         value.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        value.setForeground(new java.awt.Color(0, 0, 0));
         value.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        value.setText("0");
         value.setBorder(null);
         value.setOpaque(false);
         getContentPane().add(value);
@@ -157,7 +222,9 @@ public class chroma2 extends javax.swing.JFrame {
 
         cost.setEditable(false);
         cost.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        cost.setForeground(new java.awt.Color(0, 0, 0));
         cost.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        cost.setText("0");
         cost.setBorder(null);
         cost.setOpaque(false);
         getContentPane().add(cost);
@@ -165,7 +232,9 @@ public class chroma2 extends javax.swing.JFrame {
 
         number.setEditable(false);
         number.setFont(new java.awt.Font("OCR A Std", 0, 16)); // NOI18N
+        number.setForeground(new java.awt.Color(0, 0, 0));
         number.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        number.setText("0");
         number.setBorder(null);
         number.setOpaque(false);
         getContentPane().add(number);
@@ -182,6 +251,166 @@ public class chroma2 extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void openMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openMouseClicked
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        
+         String temp = path;
+        openned++;
+        knifeBanner.setIcon(null);
+        costs = caseV + costs;
+        int prob = (int) ((Math.random()*200)+1);
+        //calculates probabilities
+       // int prob = 200;
+        int stat = (int) ((Math.random()*25)+1);
+        int num = 0;
+        //looks if it is stattrak or not
+        st = stat<3;
+        //and sets icon accordingly
+        if(st){
+        statTrak.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/stattrak.png")));
+                }
+        else{statTrak.setIcon(null);}
+        
+        //looks at probabilities
+        //if it is a knife...
+        if(prob==200){
+            knife = true;
+            //adds one to rare count
+            if(st){statT[4]++;}
+            else{reg[4]++;}
+            //adds value to the total value and sets price text
+            if(!st){
+                tValue += 376.89;
+                price.setText(statement+""+376.89);
+            }
+            else{ 
+                tValue += 654.98;
+                price.setText(statement+""+654.98);
+            }
+            //displays banner
+            knifeBanner.setIcon(new javax.swing.ImageIcon(getClass().getResource("/guis/background/knifeBanner.png")));
+            //finds a random knife and sets the path to the resource
+            int choice = (int)(Math.random()*8+1);
+            path = "/guis/icons/knives/3/ ";
+            num = (int)(Math.random()*(knifeLoadout[2])+1);
+            path+="("+num+").png";
+            
+        }
+        
+        
+        //if it is mil-spec...
+        else if(prob<=158){
+            choice = "mil-spec";
+            //finds a mil-spec in the case collection
+            num = (int) ((Math.random()*MIL_SPEC)+1);
+            spot = COVERT + CLASSIFIED + RESTRICTED + num -1;
+            //adds one to the mil-spec count
+            if(st){statT[0]++;}
+            else{reg[0]++;}
+        }
+        //if it is restricted...
+        else if(prob<=191){
+            choice = "restricted";
+            //finds a restricted in the case collection
+            num = (int) ((Math.random()*RESTRICTED)+1);
+            spot = COVERT + CLASSIFIED + num -1;
+            //adds one to the restricted count
+            if(st){statT[1]++;}
+            else{reg[1]++;}
+        }
+        //if it is classified...
+        else if(prob<=196){
+            choice = "classified";
+            //finds a classified within the case collection
+            num = (int) ((Math.random()*CLASSIFIED)+1);
+            spot = COVERT + num -1;
+            //adds one to the classified count
+            if(st){statT[2]++;}
+            else{reg[2]++;}
+        }
+        //if it is covert...
+        else if(prob<200){
+            choice = "covert";
+            //finds a covert skin in the case
+            num = (int) ((Math.random()*COVERT)+1);
+            spot = num -1;
+            //adds one to the covert count
+            if(st){statT[3]++;}
+            else{reg[3]++;}
+        }
+        
+        //IF IT IS NOT A KNIFE...
+        if(!knife){
+            //sets the path for a gun skin
+            path += choice+num+".png";
+        }
+        
+        
+        
+        //if it isnt a knife or stattrak...
+        if(!st&&!knife){
+            //sets the correct price and adds the value of the skin to the total value
+            tValue += rValues[spot];
+            price.setText(statement+""+rValues[spot]);
+        }
+        //if it isnt knife but is a stattrak...
+        else if(st&&!knife){ 
+            //sets the correct price and adds the value of the skin to the total value
+            tValue += sValues[spot];
+            price.setText(statement+""+sValues[spot]);
+        }
+        
+        //finds the profit per case
+        profits = (tValue-costs)/openned;
+        profits = (profits*100);
+        profits+= .5;
+        profits = (double)((int)profits);
+        profits/= 100;
+        //sets the profit field to display the current profit
+        
+        profit.setText(""+profits);
+        //sets the number of oppened field to the correct value
+        number.setText(""+openned);
+        //sets the cost field to the correct value
+        String stringyCost = ""+costs;
+        if(stringyCost.length()>6){
+        stringyCost = stringyCost.substring(0,(stringyCost.indexOf(".")+3));
+        }
+        cost.setText(stringyCost);
+        //sets the value field to the correct total value
+        String stringyValue = ""+tValue;
+         if(stringyValue.length()>6){
+        stringyValue = stringyValue.substring(0,(stringyValue.indexOf(".")+3));}
+        value.setText(stringyValue);
+        //sets the correct fields for the correct counts of all the rarity/quality and stattrak combinations 
+        milspec.setText(""+reg[0]);
+        milspecst.setText(""+statT[0]);
+        restricted.setText(""+reg[1]);
+        restrictedst.setText(""+statT[1]);
+        classified.setText(""+reg[2]);
+        classifiedst.setText(""+statT[2]);
+        covert.setText(""+reg[3]);
+        covertst.setText(""+statT[3]);
+        rare.setText(""+reg[4]);
+        rarest.setText(""+statT[4]);
+        //sets the displayed skin(knife or gun) to the correct icon
+        selected.setIcon(new javax.swing.ImageIcon(getClass().getResource(path)));
+        //resets the path to the original
+        path = temp;
+        //sets the knife boolean to the original value(false)
+        knife = false;
+        //resets choice
+        choice = "";
+        //resets stattrak boolean to original value(false)
+        st = false;
+        //resets spot number
+        spot = 0;
+        //repaints/refreshes the display to show the new data
+        repaint();
+    }//GEN-LAST:event_openMouseClicked
+
+    
     /**
      * @param args the command line arguments
      */
@@ -225,16 +454,20 @@ public class chroma2 extends javax.swing.JFrame {
     private javax.swing.JTextField covertst;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel knifeBanner;
     private javax.swing.JTextField milspec;
     private javax.swing.JTextField milspecst;
     private javax.swing.JTextField number;
     private javax.swing.JButton open;
+    private javax.swing.JLabel price;
     private javax.swing.JTextField profit;
     private javax.swing.JTextField rare;
     private javax.swing.JTextField rarest;
     private javax.swing.JTextField restricted;
     private javax.swing.JTextField restrictedst;
     private javax.swing.JLabel selected;
+    private javax.swing.JLabel statTrak;
     private javax.swing.JTextField value;
     // End of variables declaration//GEN-END:variables
+    private javax.swing.Timer timer;
 }
